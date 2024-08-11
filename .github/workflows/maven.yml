@@ -73,10 +73,12 @@ jobs:
       run: |
         docker push kirox2023/boardgame:latest
           
-    - name: Kubectl Action
+    - name: Set up Kubectl Action
       uses: tale/kubectl-action@v1
       with:
         base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+
+    - name: Apply Kubernetes Deployment
       run: |
         kubectl apply -f deployment-service.yaml -n webapps
         kubectl get svc -n webapps
