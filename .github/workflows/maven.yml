@@ -58,6 +58,7 @@ jobs:
     - name: Build Docker Image
       run: |
         sudo docker build -t kirox2023/boardgame:latest .
+        sudo docker ps 
 
     - name: Trivy Image Scan
       run: |
