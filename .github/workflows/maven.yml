@@ -71,7 +71,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        sudo docker push -D kirox2023/boardgame:latest
+        docker push kirox2023/boardgame:latest
         
           
     - name: Set up Kubectl Action
