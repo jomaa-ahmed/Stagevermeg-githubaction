@@ -58,7 +58,6 @@ jobs:
     - name: Build Docker Image
       run: |
         sudo docker build -t kirox2023/boardgame:latest .
-        sudo docker ps 
 
     - name: Trivy Image Scan
       run: |
@@ -72,7 +71,8 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        sudo docker push kirox2023/boardgame:latest
+        sudo docker push -D kirox2023/boardgame:latest
+        
           
     - name: Set up Kubectl Action
       uses: tale/kubectl-action@v1
