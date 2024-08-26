@@ -1,4 +1,4 @@
-# BoardGame Database CI/CD Pipeline with Kubernetes Deployment and Monitoring
+#  CI/CD Pipeline with Kubernetes Deployment and Monitoring
 
 ## Table of Contents
 
@@ -22,9 +22,9 @@
 
 ## Project Overview
 
-This project demonstrates the deployment of a BoardGame Database application using a CI/CD pipeline. The pipeline automates the process of building, testing, and deploying the application using GitHub Actions, Docker, Kubernetes, and monitoring tools like Prometheus and Grafana.
+This project demonstrates the deployment of a BoardGame application using a CI/CD pipeline. The pipeline automates the process of building, testing, and deploying the application using GitHub Actions, Docker, Kubernetes, and monitoring tools like Prometheus and Grafana.
 
-![BoardGame Database Application](path-to-image-31-working-applicaiton.png)
+![BoardGame Application](./images/path-to-image-31-working-applicaiton.png)
 
 ## Technologies Used
 
@@ -49,7 +49,7 @@ The CI/CD pipeline is defined in GitHub Actions, automating tasks such as buildi
   - `SONAR_TOKEN`: Authentication token for SonarQube.
   - `KUBE_CONFIG`: Kubernetes configuration for deploying the application.
 
-![Secrets Configuration](path-to-image-20-add-secret-for-security.png)
+![Secrets Configuration](./images/path-to-image-20-add-secret-for-security.png)
 
 #### Pipeline Steps
 
@@ -57,15 +57,15 @@ The pipeline includes several stages:
 
 1. **Checkout Code**: Uses the `actions/checkout@v4` action to check out the repository code.
 2. **SonarQube Scan**: Analyzes the code quality using SonarQube.
-   - ![SonarQube Configuration](path-to-image-13-config-sonarqube.png)
-   - ![SonarQube Working](path-to-image-14-sonarqube-working.png)
+   - ![SonarQube Configuration](./images/path-to-image-13-config-sonarqube.png)
+   - ![SonarQube Working](./images/path-to-image-14-sonarqube-working.png)
 3. **Trivy FS Scan**: Scans the filesystem for vulnerabilities using Trivy.
-   - ![Trivy Installation](path-to-image-17-install-trivy.png)
+   - ![Trivy Installation](./images/path-to-image-17-install-trivy.png)
 4. **Build Docker Image**: Builds the Docker image for the application.
-   - ![Docker Build](path-to-image-16-pipeline-CICD.png)
+   - ![Docker Build](./images/path-to-image-16-pipeline-CICD.png)
 5. **Upload Artifact**: Stores the build artifact for later use.
 6. **Push Docker Image**: Pushes the built image to Docker Hub.
-   - ![Docker Hub Repository](path-to-image-22-docker-pushed.png)
+   - ![Docker Hub Repository](./images/path-to-image-22-docker-pushed.png)
 7. **Deploy to Kubernetes**: Deploys the application to a Kubernetes cluster using the provided `KUBE_CONFIG`.
 
 ### SonarQube Integration
@@ -74,7 +74,7 @@ SonarQube is integrated into the CI pipeline for static code analysis. This ensu
 
 - **SonarQube Project Configuration**:
   - The SonarQube project is set up to automatically scan the code and report issues directly in the CI pipeline.
-  - ![SonarQube Configuration](path-to-image-13-config-sonarqube.png)
+  - ![SonarQube Configuration](./images/path-to-image-13-config-sonarqube.png)
 
 ### Trivy Security Scanning
 
@@ -82,7 +82,7 @@ Trivy is used to scan Docker images for vulnerabilities, ensuring that the deplo
 
 - **Trivy Installation**:
   - Trivy is installed and configured as part of the CI pipeline.
-  - ![Trivy Installation](path-to-image-17-install-trivy.png)
+  - ![Trivy Installation](./images/path-to-image-17-install-trivy.png)
 
 ## Docker Image Management
 
@@ -91,25 +91,25 @@ Trivy is used to scan Docker images for vulnerabilities, ensuring that the deplo
 - **Docker Images**:
   - The Docker images are tagged and pushed to Docker Hub repositories as part of the CI/CD pipeline.
   - Repositories include `kirox2023/boardgame`, `vermegimageprod`, `devopsvermeg`, etc.
-  - ![Docker Hub](path-to-image-22-docker-pushed.png)
+  - ![Docker Hub](./images/path-to-image-22-docker-pushed.png)
 
 ## Kubernetes Setup
 
 ### Namespace and Role Setup
 
-Kubernetes is configured to deploy the BoardGame Database application.
+Kubernetes is configured to deploy the BoardGame application.
 
 - **Namespace Creation**:
   - A namespace `webapps` is created to isolate the application resources.
-  - ![Namespace Creation](path-to-image-23-create-namespace.png)
+  - ![Namespace Creation](./images/path-to-image-23-create-namespace.png)
 
 - **Service Account and Role**:
   - A service account `git-actions-svc` is created, and a role with necessary permissions is assigned.
-  - ![Service Account and Role](path-to-image-24-create-Role.png)
+  - ![Service Account and Role](./images/path-to-image-24-create-Role.png)
 
 - **RoleBinding**:
   - The role is bound to the service account to allow actions within the namespace.
-  - ![RoleBinding](path-to-image-25-add-bind.png)
+  - ![RoleBinding](./images/path-to-image-25-add-bind.png)
 
 ### Deployment and Service Configuration
 
@@ -117,11 +117,11 @@ The application is deployed using Kubernetes Deployment and Service resources.
 
 - **Deployment Configuration**:
   - The deployment is defined to manage replicas of the application.
-  - ![Deployment YAML](path-to-image-29-deployment-service.png)
+  - ![Deployment YAML](./images/path-to-image-29-deployment-service.png)
 
 - **Service Configuration**:
   - A Kubernetes Service is configured to expose the application to external traffic.
-  - ![Service YAML](path-to-image-29-deployment-service.png)
+  - ![Service YAML](./images/path-to-image-29-deployment-service.png)
 
 ### Secrets Management
 
@@ -129,7 +129,7 @@ Secrets are managed using Kubernetes secrets to securely store sensitive informa
 
 - **Kubernetes Secrets**:
   - A secret is created for accessing the Kubernetes cluster.
-  - ![Secrets Management](path-to-image-26-add-secret.png)
+  - ![Secrets Management](./images/path-to-image-26-add-secret.png)
 
 ## Monitoring with Prometheus and Grafana
 
@@ -139,11 +139,11 @@ Prometheus is set up to monitor the Kubernetes cluster and the application.
 
 - **Prometheus Installation**:
   - Prometheus is downloaded and installed on the cluster.
-  - ![Prometheus Installation](path-to-image-32-download-preotheus.png)
+  - ![Prometheus Installation](./images/path-to-image-32-download-preotheus.png)
 
 - **Prometheus Configuration**:
   - Prometheus is configured to scrape metrics from the application and other exporters.
-  - ![Prometheus Configuration](path-to-image-35-edit-prometheus.png)
+  - ![Prometheus Configuration](./images/path-to-image-35-edit-prometheus.png)
 
 ### Blackbox Exporter Setup
 
@@ -151,11 +151,11 @@ The Blackbox Exporter is set up to monitor the availability and performance of H
 
 - **Blackbox Exporter Installation**:
   - The Blackbox Exporter is installed and configured in Prometheus.
-  - ![Blackbox Exporter Setup](path-to-image-34-download-blackbox.png)
+  - ![Blackbox Exporter Setup](./images/path-to-image-34-download-blackbox.png)
 
 - **Prometheus Targets**:
   - Prometheus is configured to scrape metrics from the Blackbox Exporter.
-  - ![Prometheus Targets](path-to-image-39-prometheus-node-exporter.png)
+  - ![Prometheus Targets](./images/path-to-image-39-prometheus-node-exporter.png)
 
 ### Node Exporter Integration
 
@@ -163,26 +163,26 @@ The Node Exporter is integrated into Prometheus to monitor the system metrics of
 
 - **Node Exporter Installation**:
   - Node Exporter is installed to gather metrics such as CPU, memory, and disk usage.
-  - ![Node Exporter Installation](path-to-image-37-adding-node-exporter.png)
+  - ![Node Exporter Installation](./images/path-to-image-37-adding-node-exporter.png)
 
 - **Grafana Dashboards**:
   - Grafana is set up to visualize the metrics collected by Prometheus.
   - Dashboards for the Blackbox Exporter and Node Exporter are imported into Grafana.
-  - ![Grafana Setup](path-to-image-36-grafana.png)
-  - ![Grafana Dashboards](path-to-image-38-node-exporter.png)
+  - ![Grafana Setup](./images/path-to-image-36-grafana.png)
+  - ![Grafana Dashboards](./images/path-to-image-38-node-exporter.png)
 
 ## Accessing the Application
 
-- **Application URL**: The BoardGame Database application is accessible at [http://3.80.53.49:32389](http://3.80.53.49:32389).
+- **Application URL**: The BoardGame application is accessible at [http://3.80.53.49:32389](http://3.80.53.49:32389).
   - The application lists board games like Splendor, Clue, and Linkee.
-  - ![Application UI](path-to-image-31-working-applicaiton.png)
+  - ![Application UI](./images/path-to-image-31-working-applicaiton.png)
 
 - **Monitoring Dashboards**:
   - **Prometheus Dashboard**: Accessible at `http://54.87.227.109:9090/targets`.
   - **Grafana Dashboard**: Accessible at `http://54.87.227.109:3000`.
-  - ![Prometheus Dashboard](path-to-image-33-promtheus-working.png)
-  - ![Grafana Dashboard](path-to-image-36-grafana.png)
+  - ![Prometheus Dashboard](./images/path-to-image-33-promtheus-working.png)
+  - ![Grafana Dashboard](./images/path-to-image-36-grafana.png)
 
 ## Conclusion
 
-This project successfully demonstrates the full lifecycle of a CI/CD pipeline with Kubernetes deployment and comprehensive monitoring using Prometheus and Grafana. The BoardGame Database application is built, tested, deployed, and monitored, providing an efficient and automated workflow from development to production.
+This project successfully demonstrates the full lifecycle of a CI/CD pipeline with Kubernetes deployment and comprehensive monitoring using Prometheus and Grafana. The BoardGame application is built, tested, deployed, and monitored, providing an efficient and automated workflow from development to production.
