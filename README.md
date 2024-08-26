@@ -105,7 +105,7 @@ Kubernetes is configured to deploy the BoardGame application.
 
 - **Service Account and Role**:
   - A service account `git-actions-svc` is created, and a role with necessary permissions is assigned.
-  - ![Service Account and Role](images/path-to-image-24-create-Role.png)
+  - ![Service Account and Role](./images/path-to-image-23-service-account-role.png)
 
 - **RoleBinding**:
   - The role is bound to the service account to allow actions within the namespace.
