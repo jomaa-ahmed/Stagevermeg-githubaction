@@ -24,7 +24,7 @@
 
 This project demonstrates the deployment of a BoardGame application using a CI/CD pipeline. The pipeline automates the process of building, testing, and deploying the application using GitHub Actions, Docker, Kubernetes, and monitoring tools like Prometheus and Grafana.
 
-![architecture Application](./images/ARCHITECTURE.png)
+![architecture Application](./images/ARCHITECTURE2.png)
 
 ![BoardGame Application](./images/ahmedpath-to-image-31-working-applicaiton.png)
 
