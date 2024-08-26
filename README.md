@@ -24,6 +24,8 @@
 
 This project demonstrates the deployment of a BoardGame application using a CI/CD pipeline. The pipeline automates the process of building, testing, and deploying the application using GitHub Actions, Docker, Kubernetes, and monitoring tools like Prometheus and Grafana.
 
+(./Images/ARCHITECTURE.png)
+
 ![BoardGame Application](./images/ahmedpath-to-image-31-working-applicaiton.png)
 
 ## Technologies Used
@@ -102,10 +104,6 @@ Kubernetes is configured to deploy the BoardGame application.
 - **Namespace Creation**:
   - A namespace `webapps` is created to isolate the application resources.
   - ![Namespace Creation](./images/ahmedpath-to-image-23-create-namespace.png)
-
-- **Service Account and Role**:
-  - A service account `git-actions-svc` is created, and a role with necessary permissions is assigned.
-  - ![Service Account and Role](./images/ahmedpath-to-image-23-service-account-role.png)
 
 - **RoleBinding**:
   - The role is bound to the service account to allow actions within the namespace.
