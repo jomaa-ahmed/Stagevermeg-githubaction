@@ -118,7 +118,7 @@ The application is deployed using Kubernetes Deployment and Service resources.
 - **Deployment Configuration**:
   - The deployment is defined to manage replicas of the application.
   - ![Deployment YAML](./images/path-to-image-29-deployment-service.png)
-
+./
 - **Service Configuration**:
   - A Kubernetes Service is configured to expose the application to external traffic.
   - ![Service YAML](./images/path-to-image-29-deployment-service.png)
